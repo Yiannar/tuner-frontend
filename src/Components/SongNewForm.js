@@ -1,6 +1,7 @@
 import { useState} from 'react';
 import {  useNavigate } from 'react-router-dom';
 import axios from 'axios';
+
 const API = process.env.REACT_APP_API_URL;
 
 function SongNewForm() {
@@ -17,7 +18,7 @@ function SongNewForm() {
 
   const addSong = (newSong) => {
     axios
-      .put(`${API}/songs`, newSong)
+      .post(`${API}/songs`, newSong)
       .then(
         () => {
           navigate(`/songs`);

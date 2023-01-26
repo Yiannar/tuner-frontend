@@ -9,11 +9,11 @@ function Song ({song}) {
             {song.is_favorite ? (
                 <span>⭐️</span>
             ):(
-                <span></span>
+            null
             )}
         </td>
         <td>
-        <Link to={`/songs/${song.id}`}></Link>
+        <Link to={`/songs/${song.id}`}>{song.name}✏️</Link>
         </td>
        </tr>
     );

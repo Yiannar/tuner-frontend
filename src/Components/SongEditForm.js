@@ -12,7 +12,7 @@ function SongEditForm() {
     artist: '',
     album: '',
     time:'',
-    is_favorite: false
+    is_favorite: false,
   });
 
   const updateSong = (updatedSong) => {
@@ -36,7 +36,8 @@ function SongEditForm() {
   };
 
   useEffect(() => {
-    axios.get(`${API}/songs/${id}`).then(
+    axios.get(`${API}/songs/${id}`)
+    .then(
       (response) => setSong(response.data),
       (error) => navigate(`/not-found`)
     );
@@ -71,7 +72,7 @@ function SongEditForm() {
           id="album"
           type="text"
           value={song.album}
-          placeholder="educational, inspirational, ..."
+          placeholder="Album Name"
           onChange={handleTextChange}
         />
          <label htmlFor="time">Time:</label>
@@ -94,6 +95,7 @@ function SongEditForm() {
 
         <input type="submit" />
       </form>
+
       <Link to={`/songs/${id}`}>
         <button>Nevermind!</button>
       </Link>

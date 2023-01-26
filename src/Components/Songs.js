@@ -9,22 +9,22 @@ const [songs, setSongs]= useState([])
 
 useEffect(()=>{
     axios
-    .get(`${API/songs}`)
-    .then((response)=>{setSongs(response.data)})
+    .get(`${API}/songs`)
+    .then((response)=>setSongs(response.data))
     .catch((c)=>console.warn("catch", c))
 }, []);
 
     return (
-        <div className='Songs'>
+        <div className='Songs-body'>
             {console.log("First rendered")}
             <section>
                 <table>
                     <thead>
                         <tr>
-                            <th>Choose a Song</th>
+                            <th>Is this song your Favorite?</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className='Songs-content'>
                         {songs.map((song)=>{
                             return <Song key={song.id} song={song} />
                         })}

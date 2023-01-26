@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import {Link, useParams, useNavigate} from "react-router-dom"
+import Albums from './Albums'
 const API = process.env.REACT_APP_API_URL;
 
 
@@ -30,7 +31,7 @@ function SongDetails () {
         .get(`${API}/songs/${id}`)
         .then((response)=>{
             console.log(response.data)
-            setSong (response.data)
+            setSong(response.data)
         })
         .catch((c)=>{
             console.warn("catch", c)
@@ -42,7 +43,7 @@ function SongDetails () {
             <h3>{song.is_favortie ? <span>⭐️</span>: null} {song.name}</h3>
             <h5>
                 <span>
-                    <a href={song.name}>{song.name}</a>
+                    <a>{song.name}</a>
                 </span>
             </h5>
             <h6>{song.artist}</h6>
@@ -62,6 +63,7 @@ function SongDetails () {
                         <button onClick={handleDelete}>Delete</button>
                 </div>
             </div>
+            
         </article>
     );
 };

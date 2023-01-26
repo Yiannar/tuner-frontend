@@ -16,10 +16,10 @@ import NavBar from "./Components/NavBar"
 
 function App() {
   return (
-    <div className="">
+    <div className="App">
      <Router>
-      <NavBar/>
-      <main>
+      <NavBar className="nav"/>
+      <main className="App-content">
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/songs" element={<Index/>}/>
@@ -30,6 +30,7 @@ function App() {
         </Routes>
       </main>
      </Router>
+     <footer className="page-footer"> Demo app Y.R</footer>
     </div>
   );
 }
